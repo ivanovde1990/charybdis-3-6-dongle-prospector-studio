@@ -108,47 +108,73 @@
     timeout-ms = <20>;
     require-prior-idle-ms = <250>;
 
-    combo_reset_layer_left {
-      key-positions = <20 24>;
-      bindings = <&to RESET>;
-    };
-    combo_reset_layer_right {
-      key-positions = <25 29>;
-      bindings = <&to RESET>;
-    };
-    combo_reset_central {
-      key-positions = <32 33>;
-      bindings = <&bootloader>;
-      require-prior-idle-ms = <2000>;
-    };
-    combo_normal {
-      key-positions = <7 8>;
-      bindings = <&to BASE>;
-    };
-    combo_fn {
-      key-positions = <27 28>;
-      bindings = <&sl FUNCTION>;
-    };
-    combo_genshin {
-      key-positions = <5 9>;
-      bindings = <&to GAME>;
-    };
-    combo_esc {
-      key-positions = <1 2>;
-      bindings = <&kp ESCAPE>;
-    };
-    combo_tab {
-      key-positions = <2 3>;
-      bindings = <&kp TAB>;
-    };
-    combo_cdel {
-      key-positions = <11 12>;
-      bindings = <&kp LC(BACKSPACE)>;
-    };
-    combo_unlock {
-      key-positions = <0 4>;
-      bindings = <&studio_unlock>;
-    };
+combo_01 {
+            timeout-ms = <30>;
+            key-positions = <0 1>;
+            bindings = <&kp GRAVE>;
+        };
+
+        combo_rt {
+            timeout-ms = <30>;
+            key-positions = <3 4>;
+            bindings = <&kp LBKT>;
+        };
+
+        combo_yu {
+            timeout-ms = <30>;
+            key-positions = <7 8>;
+            bindings = <&kp RBKT>;
+        };
+
+        combo_fg {
+            timeout-ms = <30>;
+            key-positions = <15 16>;
+            bindings = <&kp LBRC>;
+        };
+
+        combo_hj {
+            timeout-ms = <30>;
+            key-positions = <19 20>;
+            bindings = <&kp RBRC>;
+        };
+
+        combo_vb {
+            timeout-ms = <30>;
+            key-positions = <27 28>;
+            bindings = <&kp PIPE>;
+        };
+
+        combo_nm {
+            timeout-ms = <30>;
+            key-positions = <31 32>;
+            bindings = <&kp BSLH>;
+        };
+
+        combo_10_11 {
+            timeout-ms = <30>;
+            key-positions = <10 11>;
+            bindings = <&kp DEL>;
+        };
+
+        combo_bt_clear {
+            timeout-ms = <150>;
+            key-positions = <0 6 7 8 9>;
+            bindings = <&bt BT_CLR>;
+        };
+
+        combo_bt_sel0 {
+            timeout-ms = <150>;
+            key-positions = <1 6 7 8 9>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
+        combo_bt_sel1 {
+            timeout-ms = <150>;
+            key-positions = <2 6 7 8 9>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+
   };
   chosen {
     zmk,physical-layout = &charybdis_6col_layout;
@@ -173,7 +199,7 @@
         &trans   &trans   &trans   &trans    &trans    &trans            &trans &trans   &trans   &trans   &trans     &trans 
         &trans   &trans &trans &trans &trans &trans            &trans &mkp MB1 &mkp MB2 &mkp MB3 &trans     &trans
         &trans   &trans   &trans   &mo 3     &mo 2     &trans            &trans &trans   &trans   &trans   &trans     &trans
-                          &mkp MB1  &mkp MB2  &mkp MB3          &trans &trans 
+                          &mkp MB1  &mkp MB2  &trans          &trans &trans
       >;
     };
 
