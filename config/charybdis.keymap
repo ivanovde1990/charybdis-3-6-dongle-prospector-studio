@@ -17,12 +17,6 @@
   ignore-modifiers;
 };
 
-&lt {
-  flavor = "balanced";
-  tapping-term-ms = <200>;
-  quick-tap-ms = <175>;
-};
-
 &caps_word {
   /delete-property/ ignore-modifiers;
 };
@@ -32,9 +26,9 @@
     hml: hml {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <2000>;
-      quick-tap-ms = <175>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <0>;
       require-prior-idle-ms = <250>;
       // hold-trigger-key-positions = <KEYS_R THUMBS>;
       hold-trigger-on-release;
@@ -46,9 +40,9 @@
     hmr: hmr {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <2000>;
-      quick-tap-ms = <175>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <0>;
       require-prior-idle-ms = <250>;
       // hold-trigger-key-positions = <KEYS_L THUMBS>;
       hold-trigger-on-release;
