@@ -110,6 +110,12 @@
             key-positions = <0 11>;
             bindings = <&to NO_HRM>;
         };
+
+        combo_back_to_base {
+            timeout-ms = <30>;
+            key-positions = <1 10>;
+            bindings = <&to BASE>;
+        };
   };
   chosen {
     zmk,physical-layout = &charybdis_6col_layout;
