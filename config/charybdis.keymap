@@ -4,8 +4,8 @@
 
 #define BASE 0
 #define MOUSE 1
-#define SYMBOL 2
-#define NUMBER 3
+#define LEFT_NUMS 2
+#define RIGHT_NUMS 3
 #define FUNCTION 4
 #define GAME 5
 #define RESET 6
@@ -108,7 +108,7 @@
     timeout-ms = <20>;
     require-prior-idle-ms = <250>;
 
-combo_01 {
+        combo_01 {
             timeout-ms = <30>;
             key-positions = <0 1>;
             bindings = <&kp GRAVE>;
@@ -155,26 +155,6 @@ combo_01 {
             key-positions = <10 11>;
             bindings = <&kp DEL>;
         };
-
-        combo_bt_clear {
-            timeout-ms = <150>;
-            key-positions = <0 6 7 8 9>;
-            bindings = <&bt BT_CLR>;
-        };
-
-        combo_bt_sel0 {
-            timeout-ms = <150>;
-            key-positions = <1 6 7 8 9>;
-            bindings = <&bt BT_SEL 0>;
-        };
-
-        combo_bt_sel1 {
-            timeout-ms = <150>;
-            key-positions = <2 6 7 8 9>;
-            bindings = <&bt BT_SEL 1>;
-        };
-
-
   };
   chosen {
     zmk,physical-layout = &charybdis_6col_layout;
@@ -186,35 +166,35 @@ combo_01 {
     Base {
       display-name = "Base";
       bindings = <
-        &lt FUNCTION ESCAPE   &kp Q        &kp W        &kp E           &kp R        &kp T                     &kp Y                &kp U                      &kp I          &kp O         &kp P        &kp LEFT_BRACKET
-        &kp TAB           &hml LSHFT A  &hml LCTRL S  &hml LALT D    &hml LGUI F &kp G                     &kp H                &hmr RGUI J               &hmr RALT K   &hmr RCTRL L   &hmr RSHFT SEMI   &kp APOS
-        &kp LSHFT         &kp Z        &mt LC(X) X  &mt LC(C) C     &kp V        &mt LC(V) B               &kp N                &kp M                      &kp COMMA      &kp DOT       &kp FSLH         &kp RIGHT_BRACKET
-                                       &kp LCTRL    &mo 2     &mt LGUI RET          &lt NUMBER SPACE       &kp BSPC
+        &kp ESCAPE      &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y       &kp U           &kp I           &kp O           &kp P               &kp BSPC
+        &kp TAB         &hml LSHFT A    &hml LCTRL S    &hml LALT D     &hml LGUI F     &kp G               &kp H       &hmr RGUI J     &hmr RALT K     &hmr RCTRL L    &hmr RSHFT SEMI     &kp APOS
+        &kp LSHFT       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp RSHFT
+                                                        &trans          &mo 2           &kp SPACE           &kp RET     &mo 2
       >;
     };
 
     Mouse {
       display-name = "Mouse";
       bindings = <
-        &trans   &trans   &trans   &trans    &trans    &trans            &trans &trans   &trans   &trans   &trans     &trans 
-        &trans   &trans &trans &trans &trans &trans            &trans &mkp MB1 &mkp MB2 &mkp MB3 &trans     &trans
-        &trans   &trans   &trans   &mo 3     &mo 2     &trans            &trans &trans   &trans   &trans   &trans     &trans
-                          &mkp MB1  &mkp MB2  &trans          &trans &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans          &trans          &trans          &trans      &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &mkp MB1        &mkp MB2        &mkp MB3        &trans      &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans          &trans          &trans          &trans      &trans
+                                            &mkp MB1    &mkp MB2    &trans              &trans      &trans
       >;
     };
 
-    Sym {
-      display-name = "Symbol";
+    Lnums {
+      display-name = "Left_nums";
       bindings = <
-        &trans &none &none &kp LEFT_BRACE       &kp RIGHT_BRACE       &kp PIPE              &kp GRAVE &kp TILDE &kp LESS_THAN &kp GREATER_THAN &kp BACKSLASH        &trans
-        &trans &none &none &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp COLON             &kp PLUS  &kp MINUS &kp SLASH     &kp ASTRK        &kp SINGLE_QUOTE     &trans
-        &trans &none &none &kp LEFT_BRACKET     &kp RIGHT_BRACKET     &kp QUESTION          &kp AMPS  &kp EQUAL &kp UNDER     &kp PERIOD       &kp DOUBLE_QUOTES    &trans
-                    &none                &none                 &trans              &none     &none                                                                     
+        &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS       &kp EQUAL
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+                                            &trans      &trans      &trans              &trans      &trans
       >;
     };
 
-    Num {
-      display-name = "Number";
+    Rnums {
+      display-name = "Right_nums";
       bindings = <
         &trans   &none    &kp N7         &kp N8          &kp N9          &none                  &none         &kp PG_UP         &kp UP            &kp PG_DN         &none          &trans
         &trans   &kp LGUI &hml_s LALT N4 &hml_s LSHFT N5 &hml_s LCTRL N6 &none                  &none         &hmr_s RCTRL LEFT &hmr_s RSHFT DOWN &hmr_s RALT RIGHT &kp RGUI       &trans
