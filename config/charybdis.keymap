@@ -7,24 +7,14 @@
 #define LEFT_NUMS 2
 #define RIGHT_NUMS 3
 #define FUNCTION 4
-#define GAME 5
-#define RESET 6
+#define NO_HRM 5
 
-#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24  
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
-#define THUMBS 30 31 32 33 34 35  
-
-&sk {
-  release-after-ms = <600>;
-  quick-release;
-};
+#define THUMBS 30 31 32 33 34 35
 
 &sl {
   ignore-modifiers;
-};
-
-&mt {
-  flavor = "tap-preferred";
 };
 
 &lt {
@@ -46,7 +36,7 @@
       tapping-term-ms = <2000>;
       quick-tap-ms = <175>;
       require-prior-idle-ms = <250>;
-      hold-trigger-key-positions = <KEYS_R THUMBS>;
+      // hold-trigger-key-positions = <KEYS_R THUMBS>;
       hold-trigger-on-release;
       bindings =
         <&kp>,
@@ -60,46 +50,11 @@
       tapping-term-ms = <2000>;
       quick-tap-ms = <175>;
       require-prior-idle-ms = <250>;
-      hold-trigger-key-positions = <KEYS_L THUMBS>;
+      // hold-trigger-key-positions = <KEYS_L THUMBS>;
       hold-trigger-on-release;
       bindings =
         <&kp>,
         <&kp>;
-    };
-    hml_s: hml_s {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <2000>;
-      quick-tap-ms = <175>;
-      require-prior-idle-ms = <0>;
-      hold-trigger-key-positions = <KEYS_R THUMBS>;
-      hold-trigger-on-release;
-      bindings =
-        <&kp>,
-        <&kp>;
-    };
-
-    hmr_s: hmr_s {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <2000>;
-      quick-tap-ms = <175>;
-      require-prior-idle-ms = <0>;
-      hold-trigger-key-positions = <KEYS_L THUMBS>;
-      hold-trigger-on-release;
-      bindings =
-        <&kp>,
-        <&kp>;
-    };
-
-
-    smart_shift: smart_shift {
-      compatible = "zmk,behavior-mod-morph";
-      #binding-cells = <0>;
-      bindings = <&sk LSHIFT>, <&caps_word>;
-      mods = <(MOD_LSFT)>;
     };
   };
 
@@ -155,6 +110,12 @@
             key-positions = <10 11>;
             bindings = <&kp DEL>;
         };
+
+        combo_toggle_nohrm {
+            timeout-ms = <30>;
+            key-positions = <0 11>;
+            bindings = <&sl NO_HRM>;
+        };
   };
   chosen {
     zmk,physical-layout = &charybdis_6col_layout;
@@ -169,7 +130,7 @@
         &kp ESCAPE      &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y       &kp U           &kp I           &kp O           &kp P               &kp BSPC
         &kp TAB         &hml LSHFT A    &hml LCTRL S    &hml LALT D     &hml LGUI F     &kp G               &kp H       &hmr RGUI J     &hmr RALT K     &hmr RCTRL L    &hmr RSHFT SEMI     &kp APOS
         &kp LSHFT       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp RSHFT
-                                                        &trans          &mo 2           &kp SPACE           &kp RET     &mo 2
+                                                        &mo 4           &mo 2           &kp SPACE           &kp RET     &mo 3
       >;
     };
 
@@ -183,64 +144,44 @@
       >;
     };
 
-    Lnums {
+    L_nums {
       display-name = "Left_nums";
       bindings = <
         &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS       &kp EQUAL
+        &trans      &trans      &trans      &trans      &trans      &trans              &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans          &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+                                            &trans      &trans      &trans              &trans      &trans
+      >;
+    };
+
+    R_nums {
+      display-name = "Right_nums";
+      bindings = <
+        &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11         &kp F10
         &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
         &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
                                             &trans      &trans      &trans              &trans      &trans
       >;
     };
 
-    Rnums {
-      display-name = "Right_nums";
-      bindings = <
-        &trans   &none    &kp N7         &kp N8          &kp N9          &none                  &none         &kp PG_UP         &kp UP            &kp PG_DN         &none          &trans
-        &trans   &kp LGUI &hml_s LALT N4 &hml_s LSHFT N5 &hml_s LCTRL N6 &none                  &none         &hmr_s RCTRL LEFT &hmr_s RSHFT DOWN &hmr_s RALT RIGHT &kp RGUI       &trans
-        &trans   &none    &kp N1         &kp N2          &kp N3          &kp LC(MINUS)          &kp LC(EQUAL) &kp HOME          &trans            &kp END           &none          &trans
-                                &kp DOT         &kp N0          &kp SPACE              &trans        &none
-      >;
-    };
-
     Fun {
       display-name = "Function";
       bindings = <
-        &trans    &kp LC(LA(DEL)) &kp F7 &kp F8 &kp F9 &kp F10          &none &none     &none     &none    &none      &trans        
-        &trans    &none           &kp F4 &kp F5 &kp F6 &kp F11          &none &kp LCTRL &kp LSHFT &kp LALT &kp LGUI   &trans     
-        &trans    &none           &kp F1 &kp F2 &kp F3 &kp F12          &none &none     &none     &none    &none      &trans
-                               &none  &none  &none            &none &none
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans          &trans          &trans          &trans      &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans          &trans          &trans          &trans      &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans          &trans          &trans          &trans      &trans
+                                            &trans      &trans      &trans              &trans      &trans
       >;
     };
 
-    Button {
-      display-name = "Game";
+    NO_HRM {
+      display-name = "NO_HRM";
       bindings = <
-        &kp ESCAPE &kp ESCAPE &kp Q &kp W    &kp E     &kp R          &none  &none    &none    &none    &none   &trans   
-        &trans &kp LCTRL  &kp A &kp S    &kp D     &kp F          &none  &mkp MB1 &mkp MB2 &mkp MB3 &none   &trans 
-        &trans &kp LSHIFT &kp Z &kp X    &kp C     &kp V          &kp N1 &kp N2   &kp N3   &kp N4   &kp N5  &trans
-                         &kp LALT &kp SPACE &kp M          &kp T  &kp B                      
-      >;
-    };
-
-    Reset {
-      display-name = "Reset";
-      bindings = <
-        &trans &none &none &none &none &none                &none &none &none &none &none &trans      
-        &trans &none &none &none &none &none                &none &none &none &none &none &trans   
-        &trans &none &none &none &none &none                &none &none &none &none &none &trans
-                    &none &none &bootloader          &bootloader &none                
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+        &trans      &kp A       &kp S       &kp D       &kp F       &trans              &trans      &kp J       &kp K       &kp L       &kp SEMI        &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+                                            &trans      &trans      &trans              &trans      &trans
       >;
     };
   };
 };
-
-
-
-
-
-
-
-
-
-
