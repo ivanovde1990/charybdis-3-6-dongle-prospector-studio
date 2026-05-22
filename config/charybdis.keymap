@@ -151,7 +151,7 @@
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-                                &trans &trans &trans   &trans &trans
+                             &trans &trans &trans   &trans &trans
       >;
     };
 
@@ -161,7 +161,7 @@
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
         &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-                                &trans &trans &trans   &trans &trans
+                             &trans &trans &trans   &trans &trans
       >;
     };
 
@@ -170,7 +170,7 @@
       bindings = <
         &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
         &trans      &kp A       &kp S       &kp D       &kp F       &trans              &trans      &mkp MB1    &mkp MB2    &kp L       &kp SEMI        &trans
-        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+        &kp LSHFT   &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
                                             &trans      &trans      &trans              &trans      &trans
       >;
     };
