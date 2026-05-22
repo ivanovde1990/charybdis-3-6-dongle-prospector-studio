@@ -1,13 +1,13 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 
-#define DEF 0
+#define BASE 0
 #define MOUSE 1
-#define LEFT_NUMS 2
-#define RIGHT_NUMS 3
-#define SCROLL 4
-#define NO_HRM 5
-#define SNIPE 6
+#define SCROLL 2
+#define SNIPE 3
+#define NO_HRM 4
+#define LEFT_NUMS 5
+#define RIGHT_NUMS 6
 
 / {
   split_inputs {
@@ -36,7 +36,7 @@
     };
 
     move {
-      layers = <DEF MOUSE SCROLL SNIPE>;
+      layers = <BASE MOUSE SCROLL SNIPE>;
     };
   };
 };

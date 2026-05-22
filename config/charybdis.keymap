@@ -4,11 +4,11 @@
 
 #define BASE 0
 #define MOUSE 1
-#define LEFT_NUMS 2
-#define RIGHT_NUMS 3
-#define SCROLL 4
-#define NO_HRM 5
-#define SNIPE 6
+#define SCROLL 2
+#define SNIPE 3
+#define NO_HRM 4
+#define LEFT_NUMS 5
+#define RIGHT_NUMS 6
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
@@ -131,7 +131,7 @@
         &kp ESCAPE      &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y       &kp U           &kp I           &kp O           &kp P               &kp BSPC
         &kp TAB         &hml LSHFT A    &hml LCTRL S    &hml LALT D     &hml LGUI F     &kp G               &kp H       &hmr RGUI J     &hmr RALT K     &hmr RCTRL L    &hmr RSHFT SEMI     &kp APOS
         &kp LC(SPACE)   &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N       &kp M           &kp COMMA       &kp DOT         &kp FSLH            &kp RSHFT
-                                                        &mo MOUSE       &mo 2           &kp SPACE           &kp RET     &mo 3
+                                                        &mo MOUSE       &mo LEFT_NUMS   &kp SPACE           &kp RET     &mo RIGHT_NUMS
       >;
     };
 
@@ -165,6 +165,16 @@
       >;
     };
 
+    NO_HRM {
+      display-name = "NO_HRM";
+      bindings = <
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+        &trans      &kp A       &kp S       &kp D       &kp F       &trans              &trans      &kp J       &kp K       &kp L       &kp SEMI        &trans
+        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
+                                            &trans      &trans      &trans              &trans      &trans
+      >;
+    };
+
     L_nums {
       display-name = "Left_nums";
       bindings = <
@@ -180,16 +190,6 @@
       bindings = <
         &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11         &kp F10
         &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
-        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
-                                            &trans      &trans      &trans              &trans      &trans
-      >;
-    };
-
-    NO_HRM {
-      display-name = "NO_HRM";
-      bindings = <
-        &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
-        &trans      &kp A       &kp S       &kp D       &kp F       &trans              &trans      &kp J       &kp K       &kp L       &kp SEMI        &trans
         &trans      &trans      &trans      &trans      &trans      &trans              &trans      &trans      &trans      &trans      &trans          &trans
                                             &trans      &trans      &trans              &trans      &trans
       >;
